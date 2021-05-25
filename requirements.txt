@@ -1,3 +1,0 @@
-Flask==1.1.2
-Python==3.9.0
-SQLite==3.35.5
