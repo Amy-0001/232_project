@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Profile Home</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/profileHome.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/topStyle.css') }}" />
+	</head>
+	<body>
+		<section class="title">
+			<a href="/"><img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" /></a>
+			<ul>
+                <li><a class="link" href="/cart">Cart {{noOfItems}}</a></li>
+                {% if not loggedIn %}
+				<li><div id="signInButton">
+					<a class="link" href="/loginForm">Sign In</a>
+				</div></li>
+				{% else %}
+				<li><div class="dropdown"> 
+					<button class="dropbtn">{{firstName}}</button>
+					<div class="dropdown-content">
+						<a href="/account/orders">Your orders</a>
+						<a href="/account/profile">Your profile</a>
+						<hr>
+						<a href="/logout">Sign Out</a>
+					</div>
+				</div></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="/">Home</a></li>
+            </ul>	
+			{% endif %}
+		</section> 
+
+		<div class="display">
+			<a href="/account/profile/edit" class="btn1">Edit Profile</a><br>
+			<a href="/account/profile/changePassword" class="btn2">Change password</a>
+		</div>
+	</body>
+</html>
+

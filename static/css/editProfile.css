@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+body{  
+    margin: 0;  
+    padding: 0;  
+    background-image: linear-gradient(60deg, lightblue 0%, purple 100%);  
+    font-family: 'Arial';  
+}  
+h1{
+    font-family: 'Permanent Marker', sans-serif ;
+    text-align: center;
+    font-size: 30px;
+}
+.change{  
+    width: 382px;
+    height: 800px;  
+    overflow: hidden;   
+    margin: auto;  
+    margin: 20 0 0 450px;  
+    padding: 80px;  
+    background: rgb(22, 167, 160);  
+    border-radius: 15px ;
+}
+.btn{
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    color: orangered;
+    background-color: transparent;
+    border: 2px solid orangered;
+    transition: .3s ease;
+    transition-property: background-color, color;
+    animation-delay: 1s;
+}
+.btn:hover{
+    color: white;
+    background-color: orangered
+}

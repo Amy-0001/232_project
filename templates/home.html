@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+	<head> 
+		<title>Welcome</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/topStyle.css') }}" />
+	</head>
+	<body>
+		<section class="title">
+			<a href="/"><img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" /></a>
+			<ul>
+                <li><a class="link" href="/cart">Cart {{noOfItems}}</a></li>
+                {% if not loggedIn %}
+				<li><div id="signInButton">
+					<a class="link" href="/loginForm">Sign In</a>
+				</div></li>
+				{% else %}
+				<li><div class="dropdown"> 
+					<button class="dropbtn">{{firstName}}</button>
+					<div class="dropdown-content">
+						<a href="/account/orders">Your orders</a>
+						<a href="/account/profile">Your profile</a>
+						<hr>
+						<a href="/logout">Sign Out</a>
+					</div>
+				</div></li>
+                <li><a href="/">Home</a></li>
+            </ul>	
+			{% endif %}
+		</section> 
+
+		<!-- products -->
+		<div class="display">
+			<div class="displayCategory">
+				<h2>Shop by Category: </h2>
+				<ul>
+					{% for row in categoryData %}
+					<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div><br>
+				<h2>Items</h2>
+				{% for data in itemData %}
+				<table>
+					<tr id="productImage">
+						{% for row in data %}
+						<td>
+							<a href="/productDescription?productId={{row[0]}}">
+								<img src="{{ url_for('static', filename='uploads/' + row[4]) }}" id="itemImage" />
+							</a>
+						</td>
+						{% endfor %}
+					</tr>
+					<tr id="productName">
+						{% for row in data %}
+						<td> 
+							{{row[1]}}
+						</td>
+						{% endfor %}
+					</tr>
+					<tr id="productPrice">
+						{% for row in data %}
+						<td>
+							Ksh{{row[2]}}
+						</td>
+						{% endfor %}
+					</tr>
+				</table>
+				{% endfor %}
+			</div>
+		</div>
+		<section class="footer">
+			<img id= "logo" src= "{{ url_for('static', filename='images/logo.png') }} "/>
+			<div class="subfooter">
+				<h3></h3>
+			   <h3>Contact Us</h3>
+			</div>   
+				<div class="social-icon">
+					<div class="social-item">
+					<a href="mailto: ambuku@students.uonbi.ac.ke"><img src="https://img.icons8.com/clouds/100/000000/email.png"/></a>
+					</div>
+					<div class="social-item">
+					<a href="#"><img src="https://img.icons8.com/clouds/100/000000/whatsapp.png"/></a>
+					</div>
+					<div class="social-item">
+					<a href="#"><img src="https://img.icons8.com/clouds/100/000000/twitter.png"/></a>
+					</div>
+					<div class="social-item">
+					<a href="#"><img src="https://img.icons8.com/clouds/100/000000/phone.png"/></a>
+					</div>
+				</div> 
+			
+			
+		</section>
+	</body>
+</html>
+
+ 
