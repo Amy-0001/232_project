@@ -118,12 +118,12 @@ table {
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
-    transition: .3s ease transform;
+   /* transition: .3s ease transform;*/
 }
 
-table:hover{
+/*table:hover{
 	transform: scale(1.1);
-}
+}*/
 
 #itemImage {
 	height: 200px;
